@@ -29,6 +29,14 @@ export const constantRouterMap = [
     component: () => import('@/views/commodity/brand/index'),
     hidden: true
   },
+  { path: '/commodity/addBrand',
+    component: () => import('@/views/commodity/brand/add'),
+    hidden: true
+  },
+  { path: '/commodity/modifyBrand',
+    component: () => import('@/views/commodity/brand/modify'),
+    hidden: true
+  },
   {
     path: '/404',
     component: () => import('@/views/errorPage/404'),

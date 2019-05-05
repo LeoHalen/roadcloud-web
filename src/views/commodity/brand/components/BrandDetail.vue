@@ -36,8 +36,8 @@
         </el-radio-group>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="onSubmit('brandFrom')">提交</el-button>
-        <el-button v-if="!isEdit" @click="resetForm('brandFrom')">重置</el-button>
+        <el-button size="small" type="primary" @click="onSubmit('brandFrom')">提交</el-button>
+        <el-button size="small" v-if="!isEdit" @click="resetForm('brandFrom')">重置</el-button>
       </el-form-item>
     </el-form>
   </el-card>
@@ -45,7 +45,36 @@
 <script>
 // import { createBrand, getBrand, updateBrand } from '@/api/brand'
 // import SingleUpload from '@/components/Upload/singleUpload'
-
+const defaultBrand = {
+  bigPic: '',
+  brandStory: '',
+  factoryStatus: 0,
+  firstLetter: '',
+  logo: '',
+  name: '',
+  showStatus: 0,
+  sort: 0
+}
+export default {
+  name: 'BrandDetail',
+  data() {
+    return {
+      brand: Object.assign({}, defaultBrand),
+      rules: {
+        name: [
+          { required: true, message: '请输入品牌名称', trigger: 'blur' },
+          { min: 2, max: 140, message: '长度在 2 到 140 个字符', trigger: 'blur' }
+        ],
+        logo: [
+          { required: true, message: '请输入品牌logo', trigger: 'blur' }
+        ],
+        sort: [
+          { type: 'number', message: '排序必须为数字' }
+        ]
+      }
+    }
+  }
+}
 // const defaultBrand = {
 //   bigPic: '',
 //   brandStory: '',

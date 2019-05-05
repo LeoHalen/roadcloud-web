@@ -9,7 +9,8 @@ import { filterAsyncRouter } from './store/modules/permission'
 
 NProgress.configure({ showSpinner: false })// NProgress Configuration
 
-const whiteList = ['/login', '/dashboard', '/commodity/brand']// no redirect whitelist
+const whiteList = ['/login', '/dashboard',
+  '/commodity/brand', '/commodity/modifyBrand']// no redirect whitelist
 
 router.beforeEach((to, from, next) => {
   if (to.meta.title) {

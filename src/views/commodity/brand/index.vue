@@ -29,16 +29,6 @@
         </el-button>
       </div>
     </el-card>
-    <!--<el-card class="middle-card">
-      <el-button
-        style="margin-left: 20px"
-        class="search-button"
-        type="primary"
-        size="small"
-        @click="handleAdd()">
-        新增
-      </el-button>
-    </el-card>-->
     <el-card class="table-card">
       <i class="el-icon-document"/>
       <span>品牌列表</span>
@@ -48,7 +38,7 @@
         type="success"
         size="mini"
         icon="el-icon-plus"
-        @click="handleAdd()">
+        @click="addBrand">
         新增
       </el-button>
       <template>
@@ -89,16 +79,10 @@
             label="操作"
             width="180">
             <template slot-scope="scope">
-<!--              <el-button-->
-<!--                @click.native.prevent="deleteRow(scope.$index, tableData)"-->
-<!--                type="text"-->
-<!--                size="small">-->
-<!--                移除-->
-<!--              </el-button>-->
               <el-button
                 size="mini"
                 type="info"
-                @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                @click="modifyBrand(scope.$index, scope.row)">编辑</el-button>
               <el-button
                 size="mini"
                 type="danger"
@@ -205,9 +189,18 @@ export default {
       }]
     }
   },
+  created() {
+
+  },
   methods: {
     searchBrandList() {
 
+    },
+    addBrand() {
+      this.$router.push({path: '/commodity/addBrand'})
+    },
+    modifyBrand() {
+      this.$router.push({path: '/commodity/modifyBrand'})
     }
   }
 }
